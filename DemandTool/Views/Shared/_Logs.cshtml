@@ -1,0 +1,68 @@
+﻿@model IEnumerable<DemandTool.MVC.Models.DemandLog>
+
+@{
+    ViewBag.Title = "_Logs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RAG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DemandStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceLine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phase)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignedTeam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Priority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RAG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DemandStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceLine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phase)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignedTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+   
+    </tr>
+}
+
+</table>

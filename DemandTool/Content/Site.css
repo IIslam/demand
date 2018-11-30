@@ -22,3 +22,147 @@ select,
 textarea {
     max-width: 280px;
 }
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*Vodafone Colors */
+.vodafone-red {
+    color: #e60000;
+}
+
+.red-violet {
+    color: #9c2aa0;
+}
+
+.aubergine {
+    color: #5e2750;
+}
+
+.fresh-orange {
+    color: #e89700;
+}
+
+
+/*nav-bar styling*/
+.navbar-inverse {
+    background-color: #e60000;
+    border-color: #e60000;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #fff;
+    }
+
+    .navbar-inverse .navbar-text {
+        color: white;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+    }
+
+    .navbar-inverse .navbar-toggle {
+        border-color: #e60000;
+    }
+
+        .navbar-inverse .navbar-toggle:hover,
+        .navbar-inverse .navbar-toggle:focus {
+            background-color: #e60000;
+        }
+
+.white {
+    color: white;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 15px 15px;
+    font-size: 27px;
+    line-height: 20px;
+}
+
+/*buttons */
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #e60000;
+    border-color: #bf0202;
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active,
+    .open .dropdown-toggle.btn-primary {
+        color: #ffffff;
+        background-color: #bf0202;
+        border-color: #a02121;
+    }
+
+    .btn-primary:active,
+    .btn-primary.active,
+    .open .dropdown-toggle.btn-primary {
+        background-image: none;
+    }
+
+    .btn-primary.disabled,
+    .btn-primary[disabled],
+    fieldset[disabled] .btn-primary,
+    .btn-primary.disabled:hover,
+    .btn-primary[disabled]:hover,
+    fieldset[disabled] .btn-primary:hover,
+    .btn-primary.disabled:focus,
+    .btn-primary[disabled]:focus,
+    fieldset[disabled] .btn-primary:focus,
+    .btn-primary.disabled:active,
+    .btn-primary[disabled]:active,
+    fieldset[disabled] .btn-primary:active,
+    .btn-primary.disabled.active,
+    .btn-primary[disabled].active,
+    fieldset[disabled] .btn-primary.active {
+        background-color: #e60000;
+        border-color: #bf0202;
+    }
+
+/* vertical offset */
+.v-offset-1 {
+    margin-top: !important 4px;
+}
+
+.v-offset-2 {
+    margin-top: !important 8px;
+}
+
+.v-offset-3 {
+    margin-top: !important 12px;
+}
+
+.v-offset-4 {
+    margin-top: !important 16px;
+}
+
+.v-offset-5 {
+    margin-top: !important 20px;
+}
+

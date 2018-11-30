@@ -1,0 +1,139 @@
+﻿@model DemandTool.MVC.Models.Demand
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Demand</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DemandNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemandNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubmissionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubmissionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DemandDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemandDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.demandStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.demandStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompletionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequesterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequesterName)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Blocked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Blocked)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReasonOfBlockage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReasonOfBlockage)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
