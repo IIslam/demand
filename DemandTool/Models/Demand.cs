@@ -24,7 +24,7 @@ namespace DemandTool.MVC.Models
         public RequestType RequestType { get; set; }
         public RAG RAG { get; set; }
         public ServiceLine ServiceLine { get; set; }
-        public string Customer { get; set; }
+        //public string Customer { get; set; }
         public string CustomerCompany { get; set; }
         public DemandStatus DemandStatus { get; set; }
         public DateTime? CompletionDate { get; set; }

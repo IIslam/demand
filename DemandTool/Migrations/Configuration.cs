@@ -1,4 +1,4 @@
-namespace DemandTool.MVC.Migrations
+namespace DemandTool.Migrations
 {
     using System;
     using System.Data.Entity;

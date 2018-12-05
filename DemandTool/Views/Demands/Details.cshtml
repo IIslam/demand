@@ -18,59 +18,40 @@
     <div class="row">
         <div class="col-md-6 form-group">
             @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-4" })
-
             @Html.TextBoxFor(model => model.Id, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
         </div>
         <div class="col-md-6 form-group">
-
             @Html.LabelFor(model => model.DemandNumber, htmlAttributes: new { @class = "control-label col-md-4" })
-
             @Html.TextBoxFor(model => model.DemandNumber, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
         </div>
-
     </div>
 
-
     <div class="row">
-
         <div class="col-md-6 form-group">
-
 
             @Html.LabelFor(model => model.SubmissionDate, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.SubmissionDate, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
 
-
-
         </div>
-
-        <div class="form-group col-lg-6">
+        <div class="form-group col-md-6">
             @Html.LabelFor(model => model.DemandDesc, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.DemandDesc, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
         </div>
-
     </div>
-
     <div class="row">
-
         <div class="col-md-6 form-group">
-
             @Html.LabelFor(model => model.Priority, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.Priority, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
         </div>
-
-        <div class="form-group col-lg-6">
+        <div class="form-group col-md-6">
             @Html.LabelFor(model => model.RAG, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.RAG, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
         </div>
     </div>
     <div class="row">
-
         <div class="col-md-6 form-group">
-
             @Html.LabelFor(model => model.RequestType, htmlAttributes: new { @class = "control-label col-md-4" })
-
             @Html.TextBoxFor(model => model.RequestType, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-
         </div>
         <div class="col-md-6 form-group">
             @Html.LabelFor(model => model.RequesterName, htmlAttributes: new { @class = "control-label col-md-4" })
@@ -78,12 +59,9 @@
         </div>
     </div>
     <div class="row">
-
         <div class="col-md-6 form-group">
-
             @Html.LabelFor(model => model.ServiceLine, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.ServiceLine, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-
         </div>
         <div class="col-md-6 form-group">
             @Html.LabelFor(model => model.CompletionDate, htmlAttributes: new { @class = "control-label col-md-4" })
@@ -91,191 +69,175 @@
         </div>
     </div>
     <div class="row">
-
-        <div class="col-md-6 form-group">
-
+        @*<div class="col-md-6 form-group">
             @Html.LabelFor(model => model.Customer, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.Customer, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+        </div>*@
+       
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.ReasonOfBlockage, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.ReasonOfBlockage, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
 
-        </div>
+            </div>
+
         <div class="col-md-6 form-group">
             @Html.LabelFor(model => model.CustomerCompany, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.CustomerCompany, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
         </div>
     </div>
 
-
     <div class="row">
-
         <div class="col-md-6 form-group">
-
             @Html.LabelFor(model => model.DemandStatus, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.DemandStatus, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
         </div>
         <div class="col-md-6 form-group">
             @Html.LabelFor(model => model.Blocked, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.Blocked, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-
         </div>
     </div>
-
-    <div class="row">
-
+    @*<div class="row">
         <div class="col-md-6 form-group">
             @Html.LabelFor(model => model.ReasonOfBlockage, htmlAttributes: new { @class = "control-label col-md-4" })
             @Html.TextBoxFor(model => model.ReasonOfBlockage, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
 
-
         </div>
         <div class="col-md-6 form-group">
         </div>
 
-
-    </div>
-
-
+    </div>*@
 
     <button id="btn2" type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModalCenter2"> <span class="glyphicon glyphicon-plus"> Add </span></button>
-    @*@using (Html.BeginForm("Edit" , "Demands" , FormMethod.Post ))
-        {*@
-
-    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <form id="addLogForm" method="post" onsubmit="return submitForm(this)" data-form-title="Update Demand">
-                    <div class="modal-header">
-                        <h2>Add Hop</h2>
-                    </div>
-                    <div class="modal-body">
-                        @Html.TextBoxFor(model => model.Id, htmlAttributes: new { @class = "hidden" })
-                        <div class="row" style="padding-bottom:5px">
-                            <div class="col-md-5">
-                                @Html.LabelFor(model => model.DemandStatus, htmlAttributes: new { @class = "modal-title" })
-                            </div>
-                            <div class="col-md-5">
-                                @Html.EnumDropDownListFor(model => model.DemandStatus, htmlAttributes: new { @class = "form-control" })
-                            </div>
+    <button id="btn2" type="button" class="btn success btn-sm " >
+        
+            @Html.ActionLink("Export", "ExportHops")
+       
+    </button>
+        @*@using (Html.BeginForm("Edit" , "Demands" , FormMethod.Post ))
+            {*@
+        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form id="addLogForm" method="post" onsubmit="return submitForm(this)" data-form-title="Update Demand">
+                        <div class="modal-header">
+                            <h2>Add Hop</h2>
                         </div>
+                        <div class="modal-body">
+                            @Html.TextBoxFor(model => model.Id, htmlAttributes: new { @class = "hidden" })
+                            <div class="row" style="padding-bottom:5px">
+                                <div class="col-md-5">
+                                    @Html.LabelFor(model => model.DemandStatus, htmlAttributes: new { @class = "modal-title" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.EnumDropDownListFor(model => model.DemandStatus, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom:5px">
+                                <div class="col-md-5">
+                                    @Html.LabelFor(model => model.ServiceLine, htmlAttributes: new { @class = "modal-title" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.EnumDropDownListFor(model => model.ServiceLine, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom:5px">
+                                <div class="col-md-5">
+                                    @Html.LabelFor(model => model.Priority, htmlAttributes: new { @class = "modal-title" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.EnumDropDownListFor(model => model.Priority, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom:5px">
+                                <div class="col-md-5">
+                                    @Html.LabelFor(model => model.RAG, htmlAttributes: new { @class = "modal-title" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.EnumDropDownListFor(model => model.RAG, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom:5px">
+                                <div class="col-md-5">
+                                    @Html.LabelFor(model => model.DemandLogs.Last().AssignedTeam, htmlAttributes: new { @class = "modal-title" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.EnumDropDownListFor(model => model.DemandLogs.Last().AssignedTeam, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom:5px">
+                                <div class="col-md-5">
+                                    @Html.LabelFor(model => model.DemandLogs.Last().TeamStatus, htmlAttributes: new { @class = "modal-title" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.EnumDropDownListFor(model => model.DemandLogs.Last().TeamStatus, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row" style="padding-bottom:5px">
+                                <div class="col-md-5">
+                                    @Html.LabelFor(model => model.Phase, htmlAttributes: new { @class = "modal-title" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.EnumDropDownListFor(model => model.Phase, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom:5px">
+                                <div class="col-md-5">
+                                    @Html.Label("Comments", new { @class = "modal-title" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.TextArea("Comments", "", new { @class = "form-control" })
+                                </div>
+                            </div>
 
 
-                        <div class="row" style="padding-bottom:5px">
-                            <div class="col-md-5">
-                                @Html.LabelFor(model => model.ServiceLine, htmlAttributes: new { @class = "modal-title" })
-                            </div>
-                            <div class="col-md-5">
-                                @Html.EnumDropDownListFor(model => model.ServiceLine, htmlAttributes: new { @class = "form-control" })
-                            </div>
                         </div>
-
-                        <div class="row" style="padding-bottom:5px">
-                            <div class="col-md-5">
-                                @Html.LabelFor(model => model.Priority, htmlAttributes: new { @class = "modal-title" })
-                            </div>
-                            <div class="col-md-5">
-                                @Html.EnumDropDownListFor(model => model.Priority, htmlAttributes: new { @class = "form-control" })
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="btnid">Save changes</button>
                         </div>
-                        <div class="row" style="padding-bottom:5px">
-                            <div class="col-md-5">
-                                @Html.LabelFor(model => model.RAG, htmlAttributes: new { @class = "modal-title" })
-                            </div>
-                            <div class="col-md-5">
-                                @Html.EnumDropDownListFor(model => model.RAG, htmlAttributes: new { @class = "form-control" })
-
-                            </div>
-                        </div>
-
-                        <div class="row" style="padding-bottom:5px">
-                            <div class="col-md-5">
-                                @Html.LabelFor(model => model.DemandLogs.Last().AssignedTeam, htmlAttributes: new { @class = "modal-title" })
-                            </div>
-                            <div class="col-md-5">
-                                @Html.EnumDropDownListFor(model => model.DemandLogs.Last().AssignedTeam, new { @class = "form-control" })
-                            </div>
-                        </div>
-
-                        <div class="row" style="padding-bottom:5px">
-                            <div class="col-md-5">
-                                @Html.LabelFor(model => model.DemandLogs.Last().TeamStatus, htmlAttributes: new { @class = "modal-title" })
-                            </div>
-                            <div class="col-md-5">
-                                @Html.EnumDropDownListFor(model => model.DemandLogs.Last().TeamStatus, new { @class = "form-control" })
-                            </div>
-                        </div>
-
-                        <div class="row" style="padding-bottom:5px">
-                            <div class="col-md-5">
-                                @Html.LabelFor(model => model.Phase, htmlAttributes: new { @class = "modal-title" })
-                            </div>
-                            <div class="col-md-5">
-                                @Html.EnumDropDownListFor(model=>model.Phase, new { @class = "form-control" })
-                            </div>
-                        </div>
-
-
-                        <div class="row" style="padding-bottom:5px">
-                            <div class="col-md-5">
-                                @Html.Label("Comments", new { @class = "modal-title" })
-
-                            </div>
-                            <div class="col-md-5">
-                                @Html.TextArea("Comments", "", new { @class = "form-control" })
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="btnid">Save changes</button>
-                    </div>
-                </form>
-
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+        @*}*@
+        @{
+            Html.RenderPartial("_Logs", Model.DemandLogs);
+        }
+        @*<table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Hops</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Phase</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>2018/10/10</td>
+                        <td>A</td>
+                        <td>test</td>
 
-    @*}*@
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>2018/11/11</td>
+                        <td>D</td>
+                        <td>test</td>
 
-    @{
-        Html.RenderPartial("_Logs", Model.DemandLogs);
-    }
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>2018/12/12</td>
+                        <td>D</td>
+                        <td>test</td>
 
-    @*<table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Hops</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Phase</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>2018/10/10</td>
-                    <td>A</td>
-                    <td>test</td>
-
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>2018/11/11</td>
-                    <td>D</td>
-                    <td>test</td>
-
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>2018/12/12</td>
-                    <td>D</td>
-                    <td>test</td>
-
-                </tr>
-            </tbody>
-        </table>*@
+                    </tr>
+                </tbody>
+            </table>*@
 </div>
 <p>
     @Html.ActionLink("Back to List", "Index")

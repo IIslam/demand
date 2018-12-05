@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using DemandTool.MVC.Context;
 using DemandTool.MVC.Models;
 using Newtonsoft.Json;
@@ -20,6 +23,13 @@ namespace DemandTool.MVC.Controllers
         public ActionResult Index()
         {
             return View(db.Demands.ToList());
+        }
+
+        public ActionResult IndexData()
+        {
+            
+            var result = db.Demands.ToList();
+           return  Json(JsonConvert.SerializeObject(result.ToArray()));
         }
 
         // GET: Demands/Details/5
@@ -159,6 +169,75 @@ namespace DemandTool.MVC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        public ActionResult ExportToExcel()
+        {
+            // Step 1 - get the data from database
+            var data = db.Demands.Select(r => new { r.Id, r.DemandDesc , r.SubmissionDate,r.DemandNumber, r.DemandStatus, r.Priority, r.Phase }).ToList();
+   
+            
+
+
+            // instantiate the GridView control from System.Web.UI.WebControls namespace
+            // set the data source
+            GridView gridview = new GridView();
+            gridview.DataSource = data;
+            gridview.DataBind();
+
+            // Clear all the content from the current response
+            Response.ClearContent();
+            Response.Buffer = true;
+            // set the header
+            Response.AddHeader("content-disposition", "attachment; filename = Demands.xls");
+            Response.ContentType = "application/ms-excel";
+            Response.Charset = "";
+            // create HtmlTextWriter object with StringWriter
+            using (StringWriter sw = new StringWriter())
+            {
+                using (HtmlTextWriter htw = new HtmlTextWriter(sw))
+                {
+                    // render the GridView to the HtmlTextWriter
+                    gridview.RenderControl(htw);
+                    // Output the GridView content saved into StringWriter
+                    Response.Output.Write(sw.ToString());
+                    Response.Flush();
+                    Response.End();
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+
+
+        public ActionResult ExportHops()
+        {
+
+            
+            var data = db.DemandLogs.ToList();
+            // var data = db.DemandLogs.Select(r => new { r.Id, r.DemandDesc, r.SubmissionDate, r.DemandNumber, r.DemandStatus, r.Priority, r.Phase }).ToList();
+
+            GridView gridview = new GridView();
+            gridview.DataSource = data;
+            gridview.DataBind();
+
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename = Demand logs.xls");
+            Response.ContentType = "application/ms-excel";
+            Response.Charset = "";
+            using (StringWriter sw = new StringWriter())
+            {
+                using (HtmlTextWriter htw = new HtmlTextWriter(sw))
+                {
+                    gridview.RenderControl(htw);
+                    Response.Output.Write(sw.ToString());
+                    Response.Flush();
+                    Response.End();
+                }
+            }
+            return RedirectToAction("Index");
         }
     }
 }
