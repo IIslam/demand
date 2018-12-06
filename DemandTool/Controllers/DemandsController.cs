@@ -7,11 +7,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DemandTool.MVC.Context;
 using DemandTool.MVC.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace DemandTool.MVC.Controllers
 {
@@ -25,11 +27,28 @@ namespace DemandTool.MVC.Controllers
             return View(db.Demands.ToList());
         }
 
+        //public ActionResult IndexData()
+        //    {
+
+        //    var result = db.Demands.ToList();
+        //      //var result2 =  Json(JsonConvert.SerializeObject(result.ToArray()), JsonRequestBehavior.AllowGet);
+
+        //    var serializer = new JavaScriptSerializer();
+        //    var serializedResult = serializer.Serialize(result);
+        //    return Json (serializedResult);
+
+
+        //}
         public ActionResult IndexData()
         {
             
-            var result = db.Demands.ToList();
-           return  Json(JsonConvert.SerializeObject(result.ToArray()));
+            var result = (db.Demands.ToList()).ToArray();
+            var result2 =  Json(JsonConvert.SerializeObject(result), JsonRequestBehavior.AllowGet);
+
+            //var serializer = new JavaScriptSerializer();
+            //var serializedResult = serializer.Serialize(result);
+            return result2;
+
         }
 
         // GET: Demands/Details/5
@@ -104,6 +123,7 @@ namespace DemandTool.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         //[ValidateAntiForgeryToken]
+
         public ActionResult Edit(DemandModel demand)
         {
             if (ModelState.IsValid)
