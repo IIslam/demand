@@ -24,13 +24,16 @@
                     <img src="~/Images/logoo.png" height="27" style="margin-top:-5px" />
                 </a>
                 @Html.ActionLink("Demand Tool", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                
             </div>
             <div class="navbar-collapse collapse">
-              
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content" style="margin-bottom:4%">
+        
         @RenderBody()
         <hr />
 
