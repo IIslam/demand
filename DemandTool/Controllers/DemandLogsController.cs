@@ -11,6 +11,7 @@ using DemandTool.MVC.Models;
 
 namespace DemandTool.MVC.Controllers
 {
+    [Authorize]
     public class DemandLogsController : Controller
     {
         private DefaultDBContext db = new DefaultDBContext();

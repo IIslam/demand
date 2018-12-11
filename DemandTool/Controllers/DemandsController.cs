@@ -17,6 +17,7 @@ using Newtonsoft.Json.Linq;
 
 namespace DemandTool.MVC.Controllers
 {
+    [Authorize]
     public class DemandsController : Controller
     {
         private DefaultDBContext db = new DefaultDBContext();
@@ -76,7 +77,7 @@ namespace DemandTool.MVC.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create(Demand demand)
         {
             if (ModelState.IsValid)

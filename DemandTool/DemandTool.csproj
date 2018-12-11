@@ -200,12 +200,10 @@
       <DependentUpon>201812111139219_v1.0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Demand.cs" />
     <Compile Include="Models\DemandLog.cs" />
     <Compile Include="Models\DemandModel.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

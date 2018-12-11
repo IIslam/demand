@@ -22,6 +22,8 @@ namespace DemandTool.MVC.Controllers
         
         public ActionResult Login(string returnUrl)
         {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Demands");
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
