@@ -3,7 +3,7 @@ namespace DemandTool.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class v007 : DbMigration
+    public partial class v009 : DbMigration
     {
         public override void Up()
         {
@@ -90,6 +90,20 @@ namespace DemandTool.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        FullName = c.String(),
+                        Username = c.String(),
+                        Email = c.String(),
+                        Mobile = c.String(),
+                        Role = c.String(),
+                        Password = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {
@@ -153,6 +167,7 @@ namespace DemandTool.Migrations
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Users");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.DemandModels");

@@ -166,3 +166,9 @@ textarea {
     margin-top: !important 20px;
 }
 
+
+@font-face {
+    font-family: 'Vodafone';
+    src: url('../fonts/Vodafone.ttf') format('truetype');
+}
+

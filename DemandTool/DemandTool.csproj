@@ -187,9 +187,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812101003492_v0.07.cs" />
-    <Compile Include="Migrations\201812101003492_v0.07.Designer.cs">
-      <DependentUpon>201812101003492_v0.07.cs</DependentUpon>
+    <Compile Include="Migrations\201812110847485_v0.09.cs" />
+    <Compile Include="Migrations\201812110847485_v0.09.Designer.cs">
+      <DependentUpon>201812110847485_v0.09.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812110855020_v0.10.cs" />
+    <Compile Include="Migrations\201812110855020_v0.10.Designer.cs">
+      <DependentUpon>201812110855020_v0.10.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -302,6 +306,7 @@
     <Content Include="Content\bootstrap-datepicker3.css.map" />
     <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
+    <Content Include="fonts\Vodafone.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\grid.locale-ar.js" />
     <Content Include="Scripts\i18n\grid.locale-bg.js" />
@@ -515,8 +520,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812101003492_v0.07.resx">
-      <DependentUpon>201812101003492_v0.07.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812110847485_v0.09.resx">
+      <DependentUpon>201812110847485_v0.09.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812110855020_v0.10.resx">
+      <DependentUpon>201812110855020_v0.10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

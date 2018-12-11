@@ -30,7 +30,7 @@ namespace DemandTool.MVC.Context
 
         public System.Data.Entity.DbSet<DemandTool.MVC.Models.DemandModel> DemandModels { get; set; }
 
-        public DbSet<User> User { get; set; }
+        public DbSet<User> Users { get; set; }
 
     }
 

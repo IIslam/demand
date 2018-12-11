@@ -7,13 +7,13 @@ namespace DemandTool.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class v007 : IMigrationMetadata
+    public sealed partial class v010 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(v007));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(v010));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812101003492_v0.07"; }
+            get { return "201812110855020_v0.10"; }
         }
         
         string IMigrationMetadata.Source

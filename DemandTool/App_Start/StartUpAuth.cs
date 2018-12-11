@@ -94,5 +94,17 @@ namespace DemandTool
         //    return Task.FromResult(0);
         //}
 
+
+
+
+
+        //public void Configuration(IAppBuilder app)
+        //{
+        //    app.CreatePerOwinContext(() => new DefaultDBContext());
+        //    CookieAuthenticationOptions options = new CookieAuthenticationOptions();
+        //    options.AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie;
+        //    options.LoginPath = new PathString("/Account/Login");
+        //    app.UseCookieAuthentication(options);
+        //}
     }
 }

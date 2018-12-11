@@ -3,24 +3,24 @@
     Layout = null;
 }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<body style="background-image:url('../../Images/bg3.jpg');background-repeat:no-repeat;
-background-size:cover;">
+@*<body style="background-image:url('../../Images/bg3.jpg');background-repeat:no-repeat;
+background-size:cover;">*@
 
     <div style="margin-top:15%;margin-left:10%">
         
-        @*<div style="width:25%;position:center">
+        <div style="width:25%;position:center">
             <button type="button" class="btn btn-block btn-lg">
                 <a href="@Url.Action("Create","Demands")">New Demand</a>
                 @Html.ActionLink("New Demand", "Create", "Demands")
-            @*</button>
+            </button>
 
             <button type="button" class="btn btn-block btn-lg">
                 @Html.ActionLink("Existing Demand", "Index", "Demands")
             </button>
-        </div>*@
+        </div>
         
-            @RenderPage("~/Views/Account/Login.cshtml")
+            @*@RenderPage("~/Views/Account/Login.cshtml")*@
 
        
     </div>
-</body>
+@*</body>*@

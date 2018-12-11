@@ -7,21 +7,25 @@ using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DemandTool.Controllers
+
+namespace DemandTool.MVC.Controllers
 {
     public class AccountController : Controller
     {
         
-            
+        private DefaultDBContext db = new DefaultDBContext();
+        
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-        [HttpPost]
+        
         //public ActionResult Login(LoginViewModel login )
         //{
         //    if (ModelState.IsValid)
@@ -44,14 +48,65 @@ namespace DemandTool.Controllers
         //    return Redirect(Url.Action("Index", "Home"));
         //}
 
+    [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = db.Users.First(s => s.Email == model.Email);
+            
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(model);
+            }
 
-        //public ActionResult Login(LoginViewModel login)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-        //    var user = User. 
-    //    }
+            if (user.Password != model.Password)
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(model);
+            }
+
+            Authenticate(user, false);
+            return RedirectToAction("Index", "Demands");
+        }
+
+        [HttpPost]
+        
+        public ActionResult LogOff()
+        {
+            IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login", "Account");
+        }
+
+        private List<Claim> GetClaims(User user)
+        {
+            var userCms = new List<Claim>
+            {
+                //new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                //new Claim(ClaimTypes.Name, user.Name),
+                new Claim(ClaimTypes.NameIdentifier , user.Id.ToString()),
+                new Claim (ClaimTypes.Name , user.FullName),
+                new Claim(ClaimTypes.Email, user.Email)
+            };
+            return userCms;
+        }
+        private void Authenticate(User user, bool rememberMe)
+        {
+            IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
+
+            var identity = new ClaimsIdentity(GetClaims(user), DefaultAuthenticationTypes.ApplicationCookie);
+            authenticationManager.SignIn
+                (new AuthenticationProperties
+            {
+                IsPersistent = rememberMe
+            }, identity);
+        }
+
+
     }
 }
+
