@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemandTool", "DemandTool\DemandTool.csproj", "{11B837A8-CF33-4446-86C6-0D99CFB9896E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemandsTool.Utilities", "DemandsTool.Utilities\DemandsTool.Utilities.csproj", "{8A624F7D-3D03-4935-978F-41FD14BE9EBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemandTool.Utilities", "DemandTool.Utilities\DemandTool.Utilities.csproj", "{51600922-41A5-44F0-858C-09A0DD1143F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{11B837A8-CF33-4446-86C6-0D99CFB9896E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11B837A8-CF33-4446-86C6-0D99CFB9896E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11B837A8-CF33-4446-86C6-0D99CFB9896E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A624F7D-3D03-4935-978F-41FD14BE9EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A624F7D-3D03-4935-978F-41FD14BE9EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A624F7D-3D03-4935-978F-41FD14BE9EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A624F7D-3D03-4935-978F-41FD14BE9EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51600922-41A5-44F0-858C-09A0DD1143F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51600922-41A5-44F0-858C-09A0DD1143F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51600922-41A5-44F0-858C-09A0DD1143F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51600922-41A5-44F0-858C-09A0DD1143F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

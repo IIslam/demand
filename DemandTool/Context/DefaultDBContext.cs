@@ -9,7 +9,7 @@ using DemandTool.Models;
 
 namespace DemandTool.MVC.Context
 {
-    public class DefaultDBContext : IdentityDbContext<ApplicationUser>
+    public class DefaultDBContext : DbContext
     {
 
         //static DefaultDBContext()
@@ -28,7 +28,7 @@ namespace DemandTool.MVC.Context
         public DbSet<Demand> Demands { get; set; }
         public DbSet<DemandLog> DemandLogs { get; set; }
 
-        public System.Data.Entity.DbSet<DemandTool.MVC.Models.DemandModel> DemandModels { get; set; }
+        public DbSet<DemandModel> DemandModels { get; set; }
 
         public DbSet<User> Users { get; set; }
 

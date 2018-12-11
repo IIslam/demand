@@ -195,6 +195,10 @@
     <Compile Include="Migrations\201812110855020_v0.10.Designer.cs">
       <DependentUpon>201812110855020_v0.10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812111139219_v1.0.cs" />
+    <Compile Include="Migrations\201812111139219_v1.0.Designer.cs">
+      <DependentUpon>201812111139219_v1.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Demand.cs" />
@@ -514,17 +518,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DemandsTool.Utilities\DemandsTool.Utilities.csproj">
-      <Project>{8a624f7d-3d03-4935-978f-41fd14be9eba}</Project>
-      <Name>DemandsTool.Utilities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\201812110847485_v0.09.resx">
       <DependentUpon>201812110847485_v0.09.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812110855020_v0.10.resx">
       <DependentUpon>201812110855020_v0.10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812111139219_v1.0.resx">
+      <DependentUpon>201812111139219_v1.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
