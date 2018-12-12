@@ -11,7 +11,8 @@
         font-family: Vodafone;
     }
 </style>
-
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <h2>Demands</h2>
 
 
@@ -27,7 +28,7 @@
 </div>
 
 
-<table class="table">
+@*<table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
@@ -80,4 +81,137 @@
             </tr>
         }
 
+    </table>*@
+
+<div ng-app="DemandApp" ng-controller="customersCtrl">
+
+    <table>
+        <tr ng-repeat="x in list">
+            <td>{{ x.Id }}</td>
+            <td>{{ x.DemandNumber }}</td>
+            <td>{{ x.SubmissionDate }}</td>
+            <td>{{ x.DemandDesc }}</td>
+            <td>{{ x.Priority }}</td>
+            <td>{{ x.DemandStatus }}</td>
+        </tr>
     </table>
+
+</div>
+
+<script>
+    var app = angular.module('DemandApp', []);
+    app.controller('customersCtrl', function ($scope, $http) {
+        $http.get("@Url.Action("IndexData", "Demands")")
+            .then(function (response) { $scope.list = response.data; console.log($scope.list) });
+        
+    });
+</script>
+
+
+@*<script type="text/javascript">
+
+
+            // altrows are set with table striped class for Boostrap
+            //$.jgrid.styleUI.Bootstrap.base.rowTable = "table table-bordered table-striped";
+
+            $("#jqGrid").jqGrid({
+                url: '@Url.Action("IndexData", "Demands")',
+                datatype: "json",
+                colModel: [
+                    { label: 'Id', name: 'Id', width: 75, editable: true },
+                    { label: 'Demand Number', name: 'DemandNumber', width: 90, editable: true },
+                    { label: 'Submission Date', name: 'SubmissionDate', width: 100, sortable: false, editable: true },
+                    { label: 'Demand Description', name: 'DemandDesc', width: 80, sorttype: 'integer', editable: true },
+                    // sorttype is used only if the data is loaded locally or loadonce is set to true
+                    { label: 'Priority', name: 'Priority', width: 80, sorttype: 'number', editable: true },
+                    { label: 'Demand Status', name: 'DemandStatus', width: 80, sorttype: 'number', editable: true },
+                ],
+                loadonce: true,
+                altRows: true,
+                //rownumbers : true,
+                //multiselect : true,
+                width: 780,
+                colMenu: true,
+                menubar: true,
+                viewrecords: true,
+                hoverrows: true,
+                height: 200,
+                rowNum: 20,
+
+                sortable: true,
+                grouping: true,
+                groupingView: {
+                    groupField: ["Id"],
+                    groupColumnShow: [true],
+                    groupText: ["<b>{0}</b>"],
+                    groupOrder: ["asc"],
+                    groupSummary: [false],
+                    groupCollapse: false
+                },
+                //altRows: true, This does not work in boostrarap
+                // altclass: '....'
+                pager: "#jqGridPager"
+                // set table stripped class in table style in bootsrap
+    });
+    console.log()
+            $('#jqGrid').navGrid('#jqGridPager',
+                // the buttons to appear on the toolbar of the grid
+                { edit: true, add: true, del: true, search: true, refresh: true, view: true, position: "left", cloneToTop: false },
+                // options for the Edit Dialog
+                {
+                    editCaption: "The Edit Dialog",
+                    recreateForm: true,
+                    checkOnUpdate: true,
+                    checkOnSubmit: true,
+                    closeAfterEdit: true,
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                },
+                // options for the Add Dialog
+                {
+                    closeAfterAdd: true,
+                    recreateForm: true,
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                },
+                // options for the Delete Dailog
+                {
+                    errorTextFormat: function (data) {
+                        return 'Error: ' + data.responseText
+                    }
+                },
+                {
+                    multipleSearch: true,
+                    showQuery: true
+                } // search options - define multiple search
+            );
+            //$("#jqGrid").jqGrid('menubarAdd', [
+            //    {
+            //        id: 'das',
+            //        //cloasoncall : true,
+            //        title: 'Sort by Id',
+            //        click: function (event) {
+            //            $("#jqGrid").jqGrid('sortGrid', 'Id');
+            //        }
+            //    },
+            //    {
+            //        divider: true,
+            //    },
+            //    {
+            //        id: 'was',
+            //        //cloasoncall : true,
+            //        title: 'Toggle Visibility',
+            //        click: function (event) {
+            //            var state = (this.p.gridstate === 'visible') ? 'hidden' : 'visible';
+            //            $("#jqGrid").jqGrid('setGridState', state);
+            //        }
+            //    }
+            //]);
+
+
+
+    </script>*@
+
+
