@@ -57,7 +57,7 @@ namespace DemandTool.MVC.Controllers
             {
                 return View(model);
             }
-            var user = db.Users.First(s => s.Email == model.Email);
+            var user = db.Users.FirstOrDefault(s => s.Email == model.Email);
             
             if (user == null)
             {
