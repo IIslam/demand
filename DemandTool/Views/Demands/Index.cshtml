@@ -28,7 +28,7 @@
 </div>
 
 
-@*<table class="table">
+<table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
@@ -81,12 +81,12 @@
             </tr>
         }
 
-    </table>*@
+    </table>
 
-<div ng-app="DemandApp" ng-controller="customersCtrl">
+@*<div ng-app="DemandApp" ng-controller="customersCtrl">
 
     <table>
-        <tr ng-repeat="x in list">
+        <tr ng-repeat="x in list track by $index">
             <td>{{ x.Id }}</td>
             <td>{{ x.DemandNumber }}</td>
             <td>{{ x.SubmissionDate }}</td>
@@ -102,10 +102,10 @@
     var app = angular.module('DemandApp', []);
     app.controller('customersCtrl', function ($scope, $http) {
         $http.get("@Url.Action("IndexData", "Demands")")
-            .then(function (response) { $scope.list = response.data; console.log($scope.list) });
+            .then(function (response) { $scope.list = JSON.parse( response.data); });
         
     });
-</script>
+</script>*@
 
 
 @*<script type="text/javascript">
