@@ -7,120 +7,107 @@
 }
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/Site.css" rel="stylesheet" />
-@*<h2>Details</h2>*@
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 
 <style>
     .hidden {
         display: none
     }
 
- 
+
     * {
         font-family: Vodafone;
     }
-
 </style>
-<div class="container " style="padding:5px ; margin-top:10px">
-    <div class="row">
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.Id, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+<div ng-app="DemandLogsApp" ng-controller="customCtrl">
+    <div class="container " style="padding:5px ; margin-top:10px">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.Id, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.DemandNumber, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.DemandNumber, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
         </div>
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.DemandNumber, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.DemandNumber, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-6 form-group">
+        <div class="row">
+            <div class="col-md-6 form-group">
 
-            @Html.LabelFor(model => model.SubmissionDate, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.SubmissionDate, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                @Html.LabelFor(model => model.SubmissionDate, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.SubmissionDate, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
 
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.DemandDesc, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.DemandDesc, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
         </div>
-        <div class="form-group col-md-6">
-            @Html.LabelFor(model => model.DemandDesc, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.DemandDesc, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.Priority, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.Priority, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.RAG, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.RAG, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.Priority, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.Priority, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.RequestType, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.RequestType, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.RequesterName, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.RequesterName, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
         </div>
-        <div class="form-group col-md-6">
-            @Html.LabelFor(model => model.RAG, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.RAG, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.ServiceLine, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.ServiceLine, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.CompletionDate, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.CompletionDate, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.RequestType, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.RequestType, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-        </div>
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.RequesterName, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.RequesterName, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.ServiceLine, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.ServiceLine, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-        </div>
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.CompletionDate, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.CompletionDate, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-        </div>
-    </div>
-    <div class="row">
-        @*<div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.Customer, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.Customer, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-        </div>*@
-       
+
+        <div class="row">
             <div class="col-md-6 form-group">
                 @Html.LabelFor(model => model.ReasonOfBlockage, htmlAttributes: new { @class = "control-label col-md-4" })
                 @Html.TextBoxFor(model => model.ReasonOfBlockage, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
 
             </div>
 
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.CustomerCompany, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.CustomerCompany, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.DemandStatus, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.DemandStatus, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-        </div>
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.Blocked, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.Blocked, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-        </div>
-    </div>
-    @*<div class="row">
-        <div class="col-md-6 form-group">
-            @Html.LabelFor(model => model.ReasonOfBlockage, htmlAttributes: new { @class = "control-label col-md-4" })
-            @Html.TextBoxFor(model => model.ReasonOfBlockage, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
-
-        </div>
-        <div class="col-md-6 form-group">
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.CustomerCompany, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.CustomerCompany, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
         </div>
 
-    </div>*@
+        <div class="row">
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.DemandStatus, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.DemandStatus, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(model => model.Blocked, htmlAttributes: new { @class = "control-label col-md-4" })
+                @Html.TextBoxFor(model => model.Blocked, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
 
-    <button id="btn2" type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModalCenter2"> <span class="glyphicon glyphicon-plus"> Add </span></button>
-    <button id="btn2" type="button" class="btn success btn-sm " >
-        
+        <button id="btn2" type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModalCenter2"> <span class="glyphicon glyphicon-plus"> Add </span></button>
+        <button id="btn2" type="button" class="btn success btn-sm ">
+
             @Html.ActionLink("Export", "ExportHops")
-       
-    </button>
-        @*@using (Html.BeginForm("Edit" , "Demands" , FormMethod.Post ))
-            {*@
+
+        </button>
         <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -207,47 +194,89 @@
                 </div>
             </div>
         </div>
-        @*}*@
-        @{
-            Html.RenderPartial("_Logs", Model.DemandLogs);
-        }
-        @*<table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Hops</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Phase</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>2018/10/10</td>
-                        <td>A</td>
-                        <td>test</td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>2018/11/11</td>
-                        <td>D</td>
-                        <td>test</td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>2018/12/12</td>
-                        <td>D</td>
-                        <td>test</td>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Priority)
 
-                    </tr>
-                </tbody>
-            </table>*@
+                    <select ng-model="selectedPriority" ng-change="filter()" class="form-control input-sm">
+                        <option value="" selected="selected"> All</option>
+                        <option ng-repeat="x in names" value="{{x.Priority}}">{{x | Priority}}</option>
+                    </select>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RAG)
+                    <select ng-model="selectedRAG"  ng-change="filter()" class="form-control input-sm">
+                        <option value="" selected ="selected" >All</option>
+                        <option ng-repeat="x in RAG " value="{{x.RAG}}">{{x | RAG}}</option>
+                    </select>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DemandStatus)
+                    <select ng-model="selectedStatus" ng-change="filter()" class="form-control input-sm">
+                        <option value="" selected="selected"> All</option>
+                        <option ng-repeat="x in Status" value="{{x.DemandStatus}}">{{x | DemandStatus}}</option>
+                    </select>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServiceLine)
+                    <select ng-model="selectedServiceLine" ng-change="filter()" class="form-control input-sm">
+                        <option value="" selected="selected"> All</option>
+                        <option ng-repeat="x in ServiceLine" value="{{x.ServiceLine}}">{{x | ServiceLine}}</option>
+                    </select>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phase)
+
+                    <select ng-model="selectedPhase" ng-change="filter()" class="form-control input-sm">
+                        <option value="" selected="selected"> All</option>
+                        <option ng-repeat="x in Phase" value="{{x.Phase}}">{{x | Phase}}</option>
+                    </select>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DemandLogs.Last().AssignedTeam)
+
+                    <select ng-model="selectedAssignedTeam" ng-change="filter()" class="form-control input-sm">
+                        <option value="" selected="selected"> All</option>
+                        <option ng-repeat="x in AssignedTeam" value="{{x.AssignedTeam}}">{{x | AssignedTeam}}</option>
+                    </select>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DemandLogs.Last().TeamStatus)
+                    <select ng-model="selectedTeamStatus" ng-change="filter()" class="form-control input-sm">
+                        <option value="" selected="selected"> All</option>
+                        <option ng-repeat="x in TeamStatus" value="{{x.TeamStatus}}">{{x | TeamStatus}}</option>
+                    </select>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DemandLogs.Last().Comments)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DemandLogs.Last().UpdatedDate)
+                </th>
+                <th>
+                </th>
+            </tr>
+
+            <tr ng-repeat="x in filteredList | filter">
+                <td>{{ x | Priority }}</td>
+                <td>{{x | RAG}}</td>
+                <td>{{ x | DemandStatus }}</td>
+                <td>{{x | ServiceLine}}</td>
+                <td>{{ x | Phase }}</td>
+                <td>{{x | AssignedTeam}}</td>
+                <td>{{x |TeamStatus}}</td>
+                <td> {{x.Comments}}</td>
+                <td>{{x.UpdatedDate}}</td>
+            </tr>
+        </table>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
 <script>
     const OldData = {
         "": "",
@@ -261,7 +290,6 @@
         "TeamStatus": "@Model.DemandLogs.Last().TeamStatus.ToString("D")",
         "AssignedTeam": "@Model.DemandLogs.Last().AssignedTeam.ToString("D")"
     };
-        //JSON.stringify( @Model );
 
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
@@ -304,7 +332,6 @@
         const ajaxConfig = {
             type: "POST",
             url: '@Url.Action("Edit","Demands")',
-            @*url: ('@Url.Action("Edit","Demands")/'+id),*@
             data: new FormData(formData),
             dataType: 'json',
             contentType: false,
@@ -322,6 +349,238 @@
         return false;
 
     }
+
+
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+
+<script>
+    var app = angular.module('DemandLogsApp', []);
+
+            app.filter('Priority', function () {
+
+                return function (x) {
+                    switch (x.Priority) {
+
+                        case 0:
+                            return "High";
+
+                        case 1:
+                            return "Medium";
+
+                        case 2:
+                            return "low";
+
+                        default:
+                            return " ";
+                    }
+                };
+            });
+
+
+            app.filter('RAG', function () {
+
+                return function (x) {
+                    switch (x.RAG) {
+
+                        case 0:
+                            return "RedColour";
+                        
+                        case 1:
+                            return "AmberColour";
+
+                        case 2:
+                            return "GreenColour";
+
+                        default:
+                            return " ";
+                    }
+                };
+            });
+
+
+
+            app.filter('ServiceLine', function () {
+
+                return function (x) {
+                    switch (x.ServiceLine) {
+
+                        case 0:
+                            return "Amelia";
+
+                        case 1:
+                            return "Automation";
+
+                        case 2:
+                            return "Robotics";
+                        case 3:
+                            return "ITSM";
+                        case 4:
+                            return "Analytics";
+                        case 5:
+                            return "Monitoring";
+                        case 6:
+                            return "Transformation and on boarding projects";
+                        case 7:
+                            return "Tools and Deployments";
+
+                        default:
+                            return " ";
+                    }
+                };
+            });
+
+
+
+            app.filter('AssignedTeam', function () {
+
+                return function (x) {
+                    switch (x.AssignedTeam) {
+
+                        case 0:
+                            return "Amelia CEO";
+
+                        case 1:
+                            return "ITSM COE";
+
+                        case 2:
+                            return "Service Broker";
+                        case 3:
+                            return "Monitoring COE";
+                        case 4:
+                            return "Analytics COE";
+                        case 5:
+                            return "Product Management";
+                        case 6:
+                            return "Architecture";
+                        case 7:
+                            return "Vendor";
+                        case 8:
+                            return "Customer";
+                        default:
+                            return " ";
+                    }
+                };
+            });
+
+
+            app.filter('DemandStatus', function () {
+                return function (x) {
+
+                    switch (x.DemandStatus) {
+                        case 0:
+                            return "Completed";
+                        case 1:
+                            return "Assigned";
+                        case 2:
+                            return "Rejected";
+
+                        case 3:
+                            return "Cancelled";
+
+                        case 4:
+                            return "onHold";
+
+
+                        default:
+                            return "onHold";
+                    }
+                };
+            });
+
+
+            app.filter('Phase', function () {
+
+                return function (x) {
+
+                    switch (x.Phase) {
+                        case 0:
+                            return "Initial Review";
+                        case 1:
+                            return "Pre Assessment Validation";
+                        case 2:
+                            return "High Level Assessment";
+
+                        case 3:
+                            return "Business Approval";
+
+                        case 4:
+                            return "Awaiting Delivery";
+
+                        case 5:
+                            return "In Delivery";
+
+
+                        default:
+                            return " ";
+
+                    }
+                };
+            });
+
+
+            app.filter('TeamStatus', function () {
+
+                return function (x) {
+                    switch (x.TeamStatus) {
+
+                        case 0:
+                            return "Completed";
+
+                        case 1:
+                            return "Assigned";
+
+                        case 2:
+                            return "Rejected";
+
+                        case 3:
+                            return "Cancelled";
+
+                        case 4:
+                            return "onHold";
+
+                        default:
+                            return " ";
+                    }
+                };
+            });
+
+            app.controller('customCtrl', function ($scope , $http) {
+
+                $http.get("@Url.Action("Details","DemandLogs" , new { id = Model.Id})")
+                    .then(function (response) { $scope.filteredList = $scope.list = JSON.parse(response.data); });
+
+                $scope.filteredList = [];
+                $scope.selectedPriority = "";
+                $scope.names = [{ Priority: 0 }, { Priority: 1 }, { Priority: 2 }];
+                
+
+                $scope.selectedAssignedTeam = "";
+                $scope.AssignedTeam = [{ AssignedTeam: 0 }, { AssignedTeam: 1 }, { AssignedTeam: 2 }, { AssignedTeam: 3 }, { AssignedTeam: 4 }, { AssignedTeam: 5 }, { AssignedTeam: 6 }, { AssignedTeam: 7 }, { AssignedTeam:8}]
+                $scope.selectedStatus = "";
+                $scope.Status = [{ DemandStatus: 0 }, { DemandStatus: 1 }, { DemandStatus: 2 }, { DemandStatus: 3 }, { DemandStatus: 4 }];
+                $scope.selectedPhase = "";
+                $scope.Phase = [{ Phase: 0 }, { Phase: 1 }, { Phase: 2 }, { Phase: 3 }, { Phase: 4 }, { Phase: 5 }]
+                $scope.selectedTeamStatus = "";
+                $scope.TeamStatus = [{ TeamStatus: 0 }, { TeamStatus: 1 }, { TeamStatus: 2 }, { TeamStatus: 3 }, { TeamStatus: 4 }]
+                $scope.selectedServiceLine = "";
+                $scope.ServiceLine = [{ ServiceLine: 0 }, { ServiceLine: 1 }, { ServiceLine: 2 }, { ServiceLine: 3 }, { ServiceLine: 4 }, { ServiceLine: 5 }, { ServiceLine: 6 }, { ServiceLine: 7 }]
+
+                $scope.selectedRAG = "";
+                $scope.RAG = [{ RAG: 0 }, { RAG: 1 }, { RAG: 2 }];
+                $scope.filter = () => {
+                    $scope.filteredList = $scope.list.filter(item => (($scope.selectedPriority == "") || item.Priority == $scope.selectedPriority)
+                        && (($scope.selectedStatus == "") || item.DemandStatus == $scope.selectedStatus)
+                        && (($scope.selectedPhase == "") || item.Phase == $scope.selectedPhase)
+                        && (($scope.selectedAssignedTeam == "") || item.AssignedTeam == $scope.selectedAssignedTeam)
+                        && (($scope.selectedTeamStatus == "") || item.TeamStatus == $scope.selectedTeamStatus)
+                        && (($scope.selectedServiceLine == "") || item.ServiceLine == $scope.selectedServiceLine)
+
+                        && (($scope.selectedRAG == "") || item.RAG == $scope.selectedRAG)
+                    );
+                }
+            });
 
 
 </script>

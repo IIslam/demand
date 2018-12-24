@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using DemandTool.MVC.Context;
 using DemandTool.MVC.Models;
+using Newtonsoft.Json;
 
 namespace DemandTool.MVC.Controllers
 {
@@ -30,12 +31,13 @@ namespace DemandTool.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DemandLog demandLogs = db.DemandLogs.Find(id);
+            List<DemandLog> demandLogs = db.DemandLogs.Where(dL => dL.DemandId == id).ToList();
             if (demandLogs == null)
             {
                 return HttpNotFound();
             }
-            return View(demandLogs);
+               var result= Json(JsonConvert.SerializeObject( demandLogs), JsonRequestBehavior.AllowGet);
+            return result;
         }
 
         // GET: DemandLogs/Create

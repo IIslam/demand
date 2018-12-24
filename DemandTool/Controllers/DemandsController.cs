@@ -192,7 +192,6 @@ namespace DemandTool.MVC.Controllers
             base.Dispose(disposing);
         }
 
-
         public ActionResult ExportToExcel()
         {
             // Step 1 - get the data from database
@@ -229,8 +228,6 @@ namespace DemandTool.MVC.Controllers
             }
             return RedirectToAction("Index");
         }
-
-
 
         public ActionResult ExportHops()
         {
