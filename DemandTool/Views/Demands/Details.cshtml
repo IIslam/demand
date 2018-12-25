@@ -252,9 +252,11 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.DemandLogs.Last().Comments)
+                    <input type="text" ng-model="searchComment" ng-change="filter()" class="form-control input-sm " />
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.DemandLogs.Last().UpdatedDate)
+                    <input type="text" ng-model="searchDate" ng-change="filter()" class="form-control input-sm " />
                 </th>
                 <th>
                 </th>
@@ -555,7 +557,8 @@
                 $scope.selectedPriority = "";
                 $scope.names = [{ Priority: 0 }, { Priority: 1 }, { Priority: 2 }];
                 
-
+                $scope.searchDate = "";
+                $scope.searchComment = "";
                 $scope.selectedAssignedTeam = "";
                 $scope.AssignedTeam = [{ AssignedTeam: 0 }, { AssignedTeam: 1 }, { AssignedTeam: 2 }, { AssignedTeam: 3 }, { AssignedTeam: 4 }, { AssignedTeam: 5 }, { AssignedTeam: 6 }, { AssignedTeam: 7 }, { AssignedTeam:8}]
                 $scope.selectedStatus = "";
@@ -578,6 +581,8 @@
                         && (($scope.selectedServiceLine == "") || item.ServiceLine == $scope.selectedServiceLine)
 
                         && (($scope.selectedRAG == "") || item.RAG == $scope.selectedRAG)
+                        && (($scope.searchDate == "") || (item.UpdatedDate).includes($scope.searchDate))
+                        && (($scope.searchComment == "") || (item.Comments).includes($scope.searchComment))
                     );
                 }
             });

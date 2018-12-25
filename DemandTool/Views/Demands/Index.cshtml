@@ -44,7 +44,7 @@
 
 
 <div ng-app="DemandApp" ng-controller="customersCtrl">
-    <table class="table">
+    <table class="table" ng-table ="usersTable" show-filter=true>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
@@ -53,12 +53,15 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DemandNumber)
+                <input type="text" ng-model="searchNumber" ng-change="filter()" class="form-control input-sm" />
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SubmissionDate)
+                <input type="text" ng-model="searchDate" ng-change="filter()" class="form-control input-sm " />
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DemandDesc)
+                <input type="text" ng-model="searchDesc" ng-change="filter()" class="form-control input-sm "/>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Priority)
@@ -88,7 +91,7 @@
             </th>
 
         </tr>
-        <tr ng-repeat="x in filteredList  | filter ">
+        <tr ng-repeat="x in filteredList  | filter   ">
 
             <td>
 
@@ -193,7 +196,7 @@
 
 
 
-        app.controller('customersCtrl', function ($scope, $http ) {
+        app.controller('customersCtrl', function ($scope, $http  , $filter) {
             $http.get("@Url.Action("IndexData", "Demands")")
                 .then(function (response) {$scope.filteredList = $scope.list = JSON.parse(response.data); });
 
@@ -212,17 +215,27 @@
             //    $scope.filteredList = $scope.list.filter(item => item.Priority == $scope.selectedPriority );
 
             //}
-
+            
+            $scope.searchNumber = "";
+            $scope.searchDate = "";
+            $scope.searchDesc = "";
             $scope.filter = () => {
                 $scope.filteredList = $scope.list.filter(item => (($scope.selectedPriority == "") || item.Priority == $scope.selectedPriority)
                                                               && (($scope.selectedStatus == "") || item.DemandStatus == $scope.selectedStatus)
-                                                              && (($scope.selectedPhase == "") || item.Phase == $scope.selectedPhase));
-                    //);
+                    && (($scope.selectedPhase == "") || item.Phase == $scope.selectedPhase)
+                    && (($scope.searchNumber === "") || (item.DemandNumber + "").includes($scope.searchNumber))
+                    && (($scope.searchDate == "") || (item.SubmissionDate).includes($scope.searchDate))
+                    && (($scope.searchDesc == "") || (item.DemandDesc).includes($scope.searchDesc))
+                    
+                    );
+                    
             }
-
-
+     
 
 
         });
+
+
+
 
 </script>
