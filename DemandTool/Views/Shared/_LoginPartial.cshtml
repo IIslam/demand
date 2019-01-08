@@ -12,6 +12,9 @@
                 @Html.ActionLink("Hello " + ((ClaimsIdentity)User.Identity).FindFirstValue(ClaimTypes.Name).Split(' ')[0] + "!", "Index", "Demands", routeValues: null, htmlAttributes: new { title = "Home" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            <li>
+                @Html.ActionLink("Change Password", "ChangePassword", "Account")
+            </li>
         </ul>
     }
 }

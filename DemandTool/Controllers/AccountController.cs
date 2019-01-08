@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Security.Claims;
@@ -17,9 +18,9 @@ namespace DemandTool.MVC.Controllers
 {
     public class AccountController : Controller
     {
-        
+
         private DefaultDBContext db = new DefaultDBContext();
-        
+
         public ActionResult Login(string returnUrl)
         {
             if (User.Identity.IsAuthenticated)
@@ -27,7 +28,7 @@ namespace DemandTool.MVC.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-        
+
         //public ActionResult Login(LoginViewModel login )
         //{
         //    if (ModelState.IsValid)
@@ -50,7 +51,7 @@ namespace DemandTool.MVC.Controllers
         //    return Redirect(Url.Action("Index", "Home"));
         //}
 
-    [HttpPost]
+        [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
@@ -58,7 +59,7 @@ namespace DemandTool.MVC.Controllers
                 return View(model);
             }
             var user = db.Users.FirstOrDefault(s => s.Email == model.Email);
-            
+
             if (user == null)
             {
                 ModelState.AddModelError("", "Invalid login attempt.");
@@ -76,7 +77,7 @@ namespace DemandTool.MVC.Controllers
         }
 
         [HttpPost]
-        
+
         public ActionResult LogOff()
         {
             IAuthenticationManager authenticationManager = HttpContext.GetOwinContext().Authentication;
@@ -103,11 +104,31 @@ namespace DemandTool.MVC.Controllers
             var identity = new ClaimsIdentity(GetClaims(user), DefaultAuthenticationTypes.ApplicationCookie);
             authenticationManager.SignIn
                 (new AuthenticationProperties
-            {
-                IsPersistent = rememberMe
-            }, identity);
+                {
+                    IsPersistent = rememberMe
+                }, identity);
         }
 
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Changepassword(UpdatePassword model)
+        {
+            var id = ((ClaimsIdentity)User.Identity).FindFirstValue(ClaimTypes.NameIdentifier);
+
+          var  user = db.Users.FirstOrDefault(u => u.Id.ToString() == id);
+            if (user!= null && user.Password == model.OldPassword)
+            {
+
+                user.Password = model.NewPassword;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index", "Demands");
+        }
 
     }
 }
