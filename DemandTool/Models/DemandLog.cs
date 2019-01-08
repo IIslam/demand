@@ -42,7 +42,27 @@ namespace DemandTool.MVC.Models
         ProductMgt,
         Architecture,
         Vendor,
-        Customer
+        Customer,
+        [Display(Name = "Future Plan")]
+        FuturePlan,
+        [Display(Name = "Networks Team")]
+        NetworksTeam,
+        [Display(Name = "Program Management")]
+        ProgramManagement,
+        [Display(Name = "Automation CoE")]
+        AutomationCoE,
+        [Display(Name = "Testing CoE")]
+        TestingCoE,
+        [Display(Name = "Tools Team")]
+        ToolsTeam,
+        Digitaization,
+        [Display(Name = "Non COE Team")]
+        NonCOETeam,
+        [Display(Name = "Robotics CoE")]
+        RoboticsCoE,
+        OnHold
+
+
     }
 
     public enum TeamStatus { Completed, Assigned, Rejected, Cancelled, onHold }

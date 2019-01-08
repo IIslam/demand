@@ -224,9 +224,8 @@
                                                               && (($scope.selectedStatus == "") || item.DemandStatus == $scope.selectedStatus)
                     && (($scope.selectedPhase == "") || item.Phase == $scope.selectedPhase)
                     && (($scope.searchNumber === "") || (item.DemandNumber + "").includes($scope.searchNumber))
-                    && (($scope.searchDate == "") || (item.SubmissionDate).includes($scope.searchDate))
-                    && (($scope.searchDesc == "") || (item.DemandDesc).includes($scope.searchDesc))
-                    
+                    && (($scope.searchDate == "") || (item.SubmissionDate + "").includes($scope.searchDate))
+                    && (($scope.searchDesc === "") || (item.DemandDesc + "").includes($scope.searchDesc))
                     );
                     
             }

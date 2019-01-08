@@ -153,6 +153,7 @@
                             <div class="row" style="padding-bottom:5px">
                                 <div class="col-md-5">
                                     @Html.LabelFor(model => model.DemandLogs.Last().AssignedTeam, htmlAttributes: new { @class = "modal-title" })
+
                                 </div>
                                 <div class="col-md-5">
                                     @Html.EnumDropDownListFor(model => model.DemandLogs.Last().AssignedTeam, new { @class = "form-control" })
@@ -208,8 +209,8 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.RAG)
-                    <select ng-model="selectedRAG"  ng-change="filter()" class="form-control input-sm">
-                        <option value="" selected ="selected" >All</option>
+                    <select ng-model="selectedRAG" ng-change="filter()" class="form-control input-sm">
+                        <option value="" selected="selected">All</option>
                         <option ng-repeat="x in RAG " value="{{x.RAG}}">{{x | RAG}}</option>
                     </select>
                 </th>
@@ -388,7 +389,7 @@
 
                         case 0:
                             return "RedColour";
-                        
+
                         case 1:
                             return "AmberColour";
 
@@ -416,14 +417,19 @@
 
                         case 2:
                             return "Robotics";
+
                         case 3:
                             return "ITSM";
+
                         case 4:
                             return "Analytics";
+
                         case 5:
                             return "Monitoring";
+
                         case 6:
                             return "Transformation and on boarding projects";
+
                         case 7:
                             return "Tools and Deployments";
 
@@ -448,18 +454,55 @@
 
                         case 2:
                             return "Service Broker";
+
                         case 3:
                             return "Monitoring COE";
+
                         case 4:
                             return "Analytics COE";
+
                         case 5:
                             return "Product Management";
+
                         case 6:
                             return "Architecture";
+
                         case 7:
                             return "Vendor";
+
                         case 8:
                             return "Customer";
+
+                    case 9:
+                            return "Future Plan";
+
+                        case 10:
+                            return "Networks Team";
+
+                        case 11:
+                            return "Program Management";
+
+                        case 12:
+                            return "Automation CoE";
+
+                        case 13:
+                            return "Testing CoE";
+
+                        case 14:
+                            return "Tools Team";
+
+                        case 15:
+                            return "Digitaization";
+
+                        case 16:
+                            return "Non COE Team";
+
+                        case 17:
+                            return "Robotics CoE";
+
+                        case 18:
+                            return "OnHold";
+
                         default:
                             return " ";
                     }
@@ -556,11 +599,10 @@
                 $scope.filteredList = [];
                 $scope.selectedPriority = "";
                 $scope.names = [{ Priority: 0 }, { Priority: 1 }, { Priority: 2 }];
-                
                 $scope.searchDate = "";
                 $scope.searchComment = "";
                 $scope.selectedAssignedTeam = "";
-                $scope.AssignedTeam = [{ AssignedTeam: 0 }, { AssignedTeam: 1 }, { AssignedTeam: 2 }, { AssignedTeam: 3 }, { AssignedTeam: 4 }, { AssignedTeam: 5 }, { AssignedTeam: 6 }, { AssignedTeam: 7 }, { AssignedTeam:8}]
+                $scope.AssignedTeam = [{ AssignedTeam: 0 }, { AssignedTeam: 1 }, { AssignedTeam: 2 }, { AssignedTeam: 3 }, { AssignedTeam: 4 }, { AssignedTeam: 5 }, { AssignedTeam: 6 }, { AssignedTeam: 7 }, { AssignedTeam: 8 } , {AssignedTeam : 9} , {AssignedTeam : 10} ,{AssignedTeam : 11}, {AssignedTeam : 12} , {AssignedTeam : 13} , {AssignedTeam : 14}, {AssignedTeam : 15} , {AssignedTeam : 16} , {AssignedTeam : 17} , {AssignedTeam : 18} ];
                 $scope.selectedStatus = "";
                 $scope.Status = [{ DemandStatus: 0 }, { DemandStatus: 1 }, { DemandStatus: 2 }, { DemandStatus: 3 }, { DemandStatus: 4 }];
                 $scope.selectedPhase = "";
@@ -568,8 +610,7 @@
                 $scope.selectedTeamStatus = "";
                 $scope.TeamStatus = [{ TeamStatus: 0 }, { TeamStatus: 1 }, { TeamStatus: 2 }, { TeamStatus: 3 }, { TeamStatus: 4 }]
                 $scope.selectedServiceLine = "";
-                $scope.ServiceLine = [{ ServiceLine: 0 }, { ServiceLine: 1 }, { ServiceLine: 2 }, { ServiceLine: 3 }, { ServiceLine: 4 }, { ServiceLine: 5 }, { ServiceLine: 6 }, { ServiceLine: 7 }]
-
+                $scope.ServiceLine = [{ ServiceLine: 0 }, { ServiceLine: 1 }, { ServiceLine: 2 }, { ServiceLine: 3 }, { ServiceLine: 4 }, { ServiceLine: 5 }, { ServiceLine: 6 }, { ServiceLine: 7 }];
                 $scope.selectedRAG = "";
                 $scope.RAG = [{ RAG: 0 }, { RAG: 1 }, { RAG: 2 }];
                 $scope.filter = () => {
@@ -579,10 +620,9 @@
                         && (($scope.selectedAssignedTeam == "") || item.AssignedTeam == $scope.selectedAssignedTeam)
                         && (($scope.selectedTeamStatus == "") || item.TeamStatus == $scope.selectedTeamStatus)
                         && (($scope.selectedServiceLine == "") || item.ServiceLine == $scope.selectedServiceLine)
-
                         && (($scope.selectedRAG == "") || item.RAG == $scope.selectedRAG)
-                        && (($scope.searchDate == "") || (item.UpdatedDate).includes($scope.searchDate))
-                        && (($scope.searchComment == "") || (item.Comments).includes($scope.searchComment))
+                        && (($scope.searchDate == "") || (item.UpdatedDate + "").includes($scope.searchDate))
+                        && (($scope.searchComment == "") || (item.Comments + "").includes($scope.searchComment))
                     );
                 }
             });
